@@ -15,6 +15,10 @@
 	<meta name="viewport" content="width=device-width">
 	<link rel="profile" href="http://gmpg.org/xfn/11">
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
+	<!-- FLEXSLIDER -->
+	<link rel="stylesheet" href="<?php bloginfo('url');?>/wp-content/themes/twentyfifteen/css/flexslider.css" type="text/css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+	<script src="<?php bloginfo('url');?>/wp-content/themes/twentyfifteen/js/jquery.flexslider.js"></script>
 	<!--[if lt IE 9]>
 	<script src="<?php echo esc_url( get_template_directory_uri() ); ?>/js/html5.js"></script>
 	<![endif]-->
