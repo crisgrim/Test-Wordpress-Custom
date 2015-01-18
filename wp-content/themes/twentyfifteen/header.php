@@ -15,6 +15,7 @@
 	<meta name="viewport" content="width=device-width">
 	<link rel="profile" href="http://gmpg.org/xfn/11">
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
 	<!-- FLEXSLIDER -->
 	<link rel="stylesheet" href="<?php bloginfo('url');?>/wp-content/themes/twentyfifteen/css/flexslider.css" type="text/css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
@@ -42,4 +43,4 @@
 		<h1>Gracias por realizar nuestra prueba</h1>
 	</div>
 
-	<div id="content" class="site-content">
+	<div id="content" class="site-content big-container">
