@@ -13,17 +13,12 @@
 	</div><!-- .site-content -->
 
 	<footer id="colophon" class="site-footer" role="contentinfo">
-		<div class="site-info">
-			<?php
-				/**
-				 * Fires before the Twenty Fifteen footer text for footer customization.
-				 *
-				 * @since Twenty Fifteen 1.0
-				 */
-				do_action( 'twentyfifteen_credits' );
-			?>
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'twentyfifteen' ) ); ?>"><?php printf( __( 'Proudly powered by %s', 'twentyfifteen' ), 'WordPress' ); ?></a>
-		</div><!-- .site-info -->
+		<a href="#" class="pull-left copyright">© Copyright. Todos los derechos reservados.</a>
+		<div class="pull-right">
+			<a href="https://www.facebook.com" class="rsociales"><img src="<?php bloginfo('url');?>/wp-content/uploads/2015/01/rfacebook.png"/></a>
+			<a href="https://twitter.com/" class="rsociales"><img src="<?php bloginfo('url');?>/wp-content/uploads/2015/01/rtwitter.png"/></a>
+			<a href="https://plus.google.com/" class="rsociales"><img src="<?php bloginfo('url');?>/wp-content/uploads/2015/01/rgoogleplus.png"/></a>
+		</div>
 	</footer><!-- .site-footer -->
 
 </div><!-- .site -->
