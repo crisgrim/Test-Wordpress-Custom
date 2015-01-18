@@ -30,5 +30,12 @@
 
 <?php wp_footer(); ?>
 
+<script>
+	$(window).load(function() {
+	    $(".flexslider").flexslider({
+	        animation: "slide",
+	    });
+	});
+</script>
 </body>
 </html>
