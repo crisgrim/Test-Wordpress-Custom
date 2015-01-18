@@ -4262,7 +4262,8 @@ p > video {
 	.hentry,
 	.page-header,
 	.page-content {
-		margin: 0 8.3333%;
+		margin: 0;
+		padding: 0 8.3333%;
 	}
 
 	.hentry {
