@@ -329,3 +329,38 @@ require get_template_directory() . '/inc/template-tags.php';
  * @since Twenty Fifteen 1.0
  */
 require get_template_directory() . '/inc/customizer.php';
+
+
+add_action('init', 'cptui_register_my_cpt_productos_destacados');
+function cptui_register_my_cpt_productos_destacados() {
+register_post_type('productos_destacados', array(
+'label' => 'Productos Destacados',
+'description' => 'Página específica para productos destacados.',
+'public' => true,
+'show_ui' => true,
+'show_in_menu' => true,
+'capability_type' => 'page',
+'map_meta_cap' => true,
+'hierarchical' => false,
+'rewrite' => array('slug' => 'productos_destacados', 'with_front' => true),
+'query_var' => true,
+'menu_position' => 5,
+'supports' => array('title','editor','excerpt','trackbacks','custom-fields','comments','revisions','thumbnail','author','page-attributes','post-formats'),
+'taxonomies' => array('productos_home'),
+'labels' => array (
+  'name' => 'Productos Destacados',
+  'singular_name' => 'Producto Destacado',
+  'menu_name' => 'Productos Destacados',
+  'add_new' => 'Add Producto Destacado',
+  'add_new_item' => 'Add New Producto Destacado',
+  'edit' => 'Edit',
+  'edit_item' => 'Edit Producto Destacado',
+  'new_item' => 'New Producto Destacado',
+  'view' => 'View Producto Destacado',
+  'view_item' => 'View Producto Destacado',
+  'search_items' => 'Search Productos Destacados',
+  'not_found' => 'No Productos Destacados Found',
+  'not_found_in_trash' => 'No Productos Destacados Found in Trash',
+  'parent' => 'Parent Producto Destacado',
+)
+) ); }
