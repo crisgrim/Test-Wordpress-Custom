@@ -48,11 +48,12 @@ get_header(); ?>
 					 
 					            $output = "<li class='oneSlide'>\n";
 					            $output .= "  <div class='slide-text'>\n";
+					            $output .= "  <a href='". $row['link_slide'] ."' target='_blank'>\n";
 					            $output .= "  <img src='".$bgimg."' />\n";
 					            $output .= "  <div class='block-text'>\n";
 					            $output .= "  <h2>". $row['slide_heading'] ."</h2>\n";
 					            $output .= "  " . $row['slide_text'];
-					            $output .= "  </div>\n";
+					            $output .= "  </div></a>\n";
 					            $output .= "  </div>\n";
 					            $output .= "</li>\r\n\n";
 					 
@@ -75,54 +76,85 @@ get_header(); ?>
 			<?php endwhile; ?>
 
 			<div class="productos-destacados">
-			<!--
+
 				<?php
-					$terms = get_the_terms( $post->ID, 'productos_home' );
-
-					if ( $terms && ! is_wp_error( $terms ) ) :
-
-					   $tags = array();
-
-					   foreach ( $terms as $term ) {
-					      $tags[] = $term->name;
-					   }
-
-					   $tags = join( ", ", $tags );
-
-					   ?>
-				   <p>Actors: <span><?php echo $tags; ?></span></p>
-				<?php endif; ?>
-			-->
-			<!--
-				<?php
-					$args = array(
-						'post_type' => 'productos_destacados',
-						'tax_query' => array(
-							array(
-								'taxonomy' => 'productos_home'
-							),
-						),
-					);
-					$query = new WP_Query( $args );
-					while ($query->have_posts()) : $query->the_post();
+					$args = array( 'post_type' => 'productos_destacados', 'posts_per_page' => 3 );
+					$loop = new WP_Query( $args );
+					while ( $loop->have_posts() ) : $loop->the_post();
+					
+					$rows = get_field('producto_destacado');
+					if($rows) {
+				 
+				        foreach($rows as $row) {
+				            // retrieve size 'large' for background image
+				            $bgimg = $row['imagen_del_producto']['sizes']['large'];
+				 
+				            $output = "<div class='oneProduct'>\n";
+				            $output .= "  <a href='". $row['enlace_producto'] ."' class='precio-producto' target='_blank'>\n";
+				            $output .= "  <img src='".$bgimg."' /></a>\n";
+				            $output .= "  <h2>". $row['nombre_del_producto'] ."</h2>\n";
+				            $output .= "  <p>". $row['descripcion_del_producto'] ."</p>\n";
+				            $output .= "  <p class='precio-producto'>". $row['precio_del_producto'] ." € <span>+IVA</span> </p>\n";
+				            $output .= "  <div class='btn-buy'>\n";
+				            $output .= "  <a href='". $row['enlace_producto'] ."' class='precio-producto'>Comprar</a>\n";
+				            $output .= "  </div>\n";
+				            $output .= "  </div>\r\n\n";
+				 
+				            echo $output;
+				        }
+					}
+					endwhile;
 				?>
-				<?php the_content( $more_link_text, $stripteaser ); ?>
-				<?php endwhile; ?>
-			-->
-			<?php
-				$args = array( 'post_type' => 'productos_destacados', 'posts_per_page' => 3 );
-				$loop = new WP_Query( $args );
-				while ( $loop->have_posts() ) : $loop->the_post();
-				
-				if ( has_post_thumbnail() ) { // check if the post has a Post Thumbnail assigned to it.
-					the_post_thumbnail();
-				}
-				  the_title();
-				  echo '<div class="entry-content">';
-				  the_content();
-				  echo '</div>';
-				endwhile;
-			?>
+
+			</div>
+
+			<div class="dossier">
+			    <?php while ( have_posts() ) : the_post();
+
+			    $rows = get_field('dossier_comercial');
+
+			    if($rows) {
+			 	
+			        foreach($rows as $row) {
+
+			            $output = "<div class='dossierComercial'>\n";
+			            $output .= "  <a href='". $row['enlace_del_dossier'] ."'>\n";
+			            $output .= "  <h2>". $row['texto_del_enlace'] ."</h2>\n";
+			            $output .= "  <img src='". get_bloginfo('url') ."/wp-content/uploads/2015/01/pdfimg.png' />\n";
+			            $output .= "  </a></div>\r\n\n";
+			            
+			 
+			            echo $output;
+			        }
+			    }
+			 
+			    endwhile; ?>
+			</div>
+
+			<div class="noticiaHome">
+			    <?php while ( have_posts() ) : the_post();
+
+			    $rows = get_field('noticia_destacada');
+
+			    if($rows) {
+			 	
+			        foreach($rows as $row) {
+			        	$bgimg = $row['imagen_noticia']['sizes']['large'];
+
+			            $output  = "  <div class='noticiaImagen'>\n";
+			            $output .= "  	<img src='".$bgimg."' />\n";
+			            $output .= "  </div>\n";
+			            $output .= "  <div class='noticiaInfo'>\n";
+						$output .= "  	<h2>". $row['titulo_noticia'] ."</h2>\n";
+						$output .= "  	<p>". $row['resumen_noticia'] ."</p>\n";
+						$output .= "  	<a href='". $row['enlace_noticia_completa'] ."'>Leer más</a>\n";
+			            $output .= "  </div>\r\n\n";
+			 
+			            echo $output;
+			        }
+			    }
+			 
+			    endwhile; ?>
 			</div>
 
 
