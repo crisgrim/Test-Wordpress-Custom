@@ -118,7 +118,7 @@ get_header(); ?>
 			        foreach($rows as $row) {
 
 			            $output = "<div class='dossierComercial'>\n";
-			            $output .= "  <a href='". $row['enlace_del_dossier'] ."'>\n";
+			            $output .= "  <a href='". $row['enlace_del_dossier'] ."' target='_blank'>\n";
 			            $output .= "  <h2>". $row['texto_del_enlace'] ."</h2>\n";
 			            $output .= "  <img src='". get_bloginfo('url') ."/wp-content/uploads/2015/01/pdfimg.png' />\n";
 			            $output .= "  </a></div>\r\n\n";
@@ -146,8 +146,7 @@ get_header(); ?>
 			            $output .= "  </div>\n";
 			            $output .= "  <div class='noticiaInfo'>\n";
 						$output .= "  	<h2>". $row['titulo_noticia'] ."</h2>\n";
-						$output .= "  	<p>". $row['resumen_noticia'] ."</p>\n";
-						$output .= "  	<a href='". $row['enlace_noticia_completa'] ."'>Leer más</a>\n";
+						$output .= "  	<p>". $row['resumen_noticia'] ."<a href='". $row['enlace_noticia_completa'] ."'> Leer más </a></p>\n";
 			            $output .= "  </div>\r\n\n";
 			 
 			            echo $output;
