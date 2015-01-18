@@ -157,6 +157,11 @@ get_header(); ?>
 			</div>
 
 
+			<div class="formularioContacto">
+				<?php echo do_shortcode( '[contact-form-7 id="64" title="Formulario de subscripción"]' ); ?>
+			</div>
+
+
 		</div><!-- #content -->
 	</div><!-- #primary -->
 
